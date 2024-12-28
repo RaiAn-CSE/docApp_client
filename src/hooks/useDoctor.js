@@ -5,7 +5,7 @@ const useAdmin = email => {
     const [isDoctorLoading, setIsDoctorLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`https://doc-app-server.vercel.app/users/doctor/${email}`)
+            fetch(`${process.env.REACT_APP_SERVER_LINK}/users/doctor/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

@@ -8,7 +8,7 @@ const MyAppointment = () => {
 
     console.log(user?.email, "user Email from my appointment");
 
-    const url = `https://doc-app-server.vercel.app/bookings?email=${user?.email}`;
+    const url = `${process.env.REACT_APP_SERVER_LINK}/bookings?email=${user?.email}`;
 
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -35,7 +35,7 @@ const MyAppointment = () => {
         };
 
         try {
-            const response = await fetch(`https://doc-app-server.vercel.app/order`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_LINK}/order`, {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify(paymentList),

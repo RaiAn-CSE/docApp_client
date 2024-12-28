@@ -25,7 +25,7 @@ const Home = () => {
     const [isPosting, setIsPosting] = useState(false);
 
     useEffect(() => {
-        fetch(`https://doc-app-server.vercel.app/posts`)
+        fetch(`${process.env.REACT_APP_SERVER_LINK}/posts`)
             .then(res => res.json())
             .then(data => setPostInfo(data));
     }, []);
@@ -70,7 +70,7 @@ const Home = () => {
             postTime: currentTime,
         };
 
-        fetch(`https://doc-app-server.vercel.app/posts`, {
+        fetch(`${process.env.REACT_APP_SERVER_LINK}/posts`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(itemInfo)

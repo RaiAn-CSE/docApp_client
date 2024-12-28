@@ -5,7 +5,7 @@ const useAdmin = email => {
     const [isAdminLoading, setIsAdminLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`https://doc-app-server.vercel.app/users/admin/${email}`)
+            fetch(`${process.env.REACT_APP_SERVER_LINK}/users/admin/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

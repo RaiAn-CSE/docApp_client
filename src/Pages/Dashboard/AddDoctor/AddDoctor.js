@@ -27,7 +27,7 @@ const AddDoctor = () => {
     useEffect(() => {
         const fetchSpecialties = async () => {
             try {
-                const res = await axios.get(`https://doc-app-server.vercel.app/appointmentSpecialty`);
+                const res = await axios.get(`${process.env.REACT_APP_SERVER_LINK}/appointmentSpecialty`);
                 setSpecialties(res.data);
             } catch (err) { console.log(err); }
         };
@@ -78,7 +78,7 @@ const AddDoctor = () => {
 
     // Save user data with role in the database
     const saveUser = async (doctor) => {
-        const response = await fetch(`https://doc-app-server.vercel.app/users`, {
+        const response = await fetch(`${process.env.REACT_APP_SERVER_LINK}/users`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(doctor),
@@ -93,7 +93,7 @@ const AddDoctor = () => {
     // Save user data with role in the database
     const UpdateDoctorUser = async (doctor) => {
         try {
-            const response = await fetch(`https://doc-app-server.vercel.app/v2/updateAppointmentOptions`, {
+            const response = await fetch(`${process.env.REACT_APP_SERVER_LINK}/v2/updateAppointmentOptions`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
