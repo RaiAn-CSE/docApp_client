@@ -6,14 +6,14 @@ const AllUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch(`${process.env.SERVER_LINK}/users`);
+      const res = await fetch(`https://doc-app-server.vercel.app/users`);
       const data = await res.json();
       return data;
     }
   });
 
   const handleMakeAdmin = id => {
-    fetch(`${process.env.SERVER_LINK}/users/admin/${id}`, {
+    fetch(`https://doc-app-server.vercel.app/users/admin/${id}`, {
       method: 'PUT',
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -29,7 +29,7 @@ const AllUsers = () => {
   }
 
   const handleMakeDoctor = id => {
-    fetch(`${process.env.SERVER_LINK}/users/doctor/${id}`, {
+    fetch(`https://doc-app-server.vercel.app/users/doctor/${id}`, {
       method: 'PUT',
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -47,7 +47,7 @@ const AllUsers = () => {
 
 
   const handleDeleteUser = (id) => {
-    fetch(`${process.env.SERVER_LINK}/users/${id}`, {
+    fetch(`https://doc-app-server.vercel.app/users/${id}`, {
       method: 'DELETE',
       headers: {
         authorization: `bearer ${localStorage.getItem('accessToken')}`

@@ -16,7 +16,7 @@ const ConversationPage = () => {
     useEffect(() => {
         const fetchConversations = async () => {
             try {
-                const response = await axios.get(`${process.env.SERVER_LINK}/conversations/${userEmail}`);
+                const response = await axios.get(`https://doc-app-server.vercel.app/conversations/${userEmail}`);
                 setConversations(response.data);
             } catch (error) {
                 console.error('Error fetching conversations:', error);

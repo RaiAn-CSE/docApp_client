@@ -61,7 +61,7 @@ const SignUp = () => {
 
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch(`${process.env.SERVER_LINK}/users`, {
+        fetch(`https://doc-app-server.vercel.app/users`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

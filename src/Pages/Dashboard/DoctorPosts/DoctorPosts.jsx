@@ -14,7 +14,7 @@ const DoctorPosts = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await axios.get(`${process.env.SERVER_LINK}/emailPosts?email=${user?.email}`);
+            const res = await axios.get(`https://doc-app-server.vercel.app/emailPosts?email=${user?.email}`);
 
             setPosts(res.data);
         })();
@@ -24,7 +24,7 @@ const DoctorPosts = () => {
 
     // delete item
     const handleDelete = (id) => {
-        fetch(`${process.env.SERVER_LINK}/deleteItem/${id}`, {
+        fetch(`https://doc-app-server.vercel.app/deleteItem/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
