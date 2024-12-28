@@ -14,7 +14,7 @@ const DoctorPosts = () => {
 
     useEffect(() => {
         (async () => {
-            const res = await axios.get(`http://localhost:5000/emailPosts?email=${user?.email}`);
+            const res = await axios.get(`${process.env.SERVER_LINK}/emailPosts?email=${user?.email}`);
 
             setPosts(res.data);
         })();
@@ -24,7 +24,7 @@ const DoctorPosts = () => {
 
     // delete item
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/deleteItem/${id}`, {
+        fetch(`${process.env.SERVER_LINK}/deleteItem/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

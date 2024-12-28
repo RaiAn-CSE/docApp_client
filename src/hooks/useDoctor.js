@@ -5,7 +5,7 @@ const useAdmin = email => {
     const [isDoctorLoading, setIsDoctorLoading] = useState(true);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/users/doctor/${email}`)
+            fetch(`${process.env.SERVER_LINK}/users/doctor/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

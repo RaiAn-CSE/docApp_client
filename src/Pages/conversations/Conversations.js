@@ -19,7 +19,7 @@ const Conversations = () => {
 
     const fetchConversations = async () => {
         try {
-            const response = await axios.post(`http://localhost:5000/conversations`, {
+            const response = await axios.post(`${process.env.SERVER_LINK}/conversations`, {
                 email: userEmail,
                 postId,  // Fetch conversations associated with the postId
             });
@@ -41,7 +41,7 @@ const Conversations = () => {
     const addNewMessage = async (form) => {
         if (activeConversation?._id) {
             try {
-                const response = await axios.post("http://localhost:5000/conversations/messages", {
+                const response = await axios.post(`${process.env.SERVER_LINK}/conversations/messages`, {
                     conversationId: activeConversation._id,
                     message: form.message,
                     senderEmail: userEmail,

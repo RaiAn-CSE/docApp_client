@@ -14,7 +14,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/user/mongo?email=${user?.email}`);
+                const response = await axios.get(`${process.env.SERVER_LINK}/user/mongo?email=${user?.email}`);
                 setMongoUser(response.data);
             } catch (error) {
                 console.error("Error fetching user data:", error);

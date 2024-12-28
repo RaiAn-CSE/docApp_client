@@ -25,7 +25,7 @@ const Home = () => {
     const [isPosting, setIsPosting] = useState(false);
 
     useEffect(() => {
-        fetch('http://localhost:5000/posts')
+        fetch(`${process.env.SERVER_LINK}/posts`)
             .then(res => res.json())
             .then(data => setPostInfo(data));
     }, []);
@@ -70,7 +70,7 @@ const Home = () => {
             postTime: currentTime,
         };
 
-        fetch(`http://localhost:5000/posts`, {
+        fetch(`${process.env.SERVER_LINK}/posts`, {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(itemInfo)
@@ -102,6 +102,8 @@ const Home = () => {
             <Navbar />
             <div className='w-full min-h-screen grid justify-center'>
                 <div className='flex justify-between flex-wrap text-gray-700 py-3 px-[3%] lg:px-[6%] bg-[#E2E2E2] max-w-[1280px]'>
+
+
                     <LeftSidebar />
 
                     <div className='basis-full lg:basis-[47%]'>
@@ -179,6 +181,7 @@ const Home = () => {
                     </div>
 
                     <RightSidebar />
+
                 </div>
             </div>
         </>
