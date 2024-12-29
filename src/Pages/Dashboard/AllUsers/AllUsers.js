@@ -3,6 +3,7 @@ import React from 'react';
 import toast from 'react-hot-toast';
 
 const AllUsers = () => {
+
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
@@ -43,8 +44,6 @@ const AllUsers = () => {
         }
       })
   }
-
-
 
   const handleDeleteUser = (id) => {
     fetch(`${process.env.REACT_APP_SERVER_LINK}/users/${id}`, {

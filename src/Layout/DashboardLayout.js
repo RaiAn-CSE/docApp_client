@@ -12,17 +12,19 @@ const DashboardLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
+
             <div className="drawer drawer-mobile h-fit">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
                 </div>
+
                 <div className="sticky top-0 h-screen">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-80 text-base-content space-y-1">
                         {
                             // Only show "My Appointments" if the user is neither an admin nor a doctor
-                            !(isDoctor || isAdmin) && (
+                            !(isDoctor) && (
                                 <li><Link to="/dashboard/myAppointment">My Appointments</Link></li>
                             )
                         }

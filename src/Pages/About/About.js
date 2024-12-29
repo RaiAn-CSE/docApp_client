@@ -38,6 +38,7 @@ const About = () => {
 
     return (
         <>
+            {/* First Section  */}
             <div className='hero min-h-screen bg-[#E2E2E2]'>
                 <section className="hero-content relative grid grid-cols-12 gap-4 py-5 mx-2 lg:mx-0 p-5 lg:pr-8 lg:pl-16 2xl:px-4">
 
@@ -103,6 +104,7 @@ const About = () => {
             </div>
 
             <div className='mx-10'>
+                {/* Second Section  */}
                 <Banner />
                 <MakeAppointment />
                 <InfoCards />
